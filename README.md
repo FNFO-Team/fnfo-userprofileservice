@@ -121,15 +121,14 @@ FNFO-UserProfileService/
 
 El **UserProfileService** forma parte del ecosistema **FNFO Backend**, desplegado en **Kubernetes (EKS – AWS)**.
 
-```
-Frontend (React + Phaser + Socket.IO)
-     │
-     ▼
- NGINX / API Gateway
-     │
-     ▼
- UserProfileService ───► MongoDB
-```
+![userprofileservice.drawio.png](diagrams/userprofileservice.drawio.png)
+
+---
+
+## 🧠 Clases y datos del módulo
+
+![UserProfilesServiceClases.drawio.png](diagrams/UserProfilesServiceClases.drawio.png)
+![userprofileserviceDatos.drawio.png](diagrams/userprofileserviceDatos.drawio.png)
 
 ---
 
