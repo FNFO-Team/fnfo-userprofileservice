@@ -2,14 +2,16 @@ import { Request, Response, NextFunction } from "express";
 import { firebaseAdmin } from "../config/firebase";
 
 export async function verifyAuth(req: Request, res: Response, next: NextFunction) {
-    const token = req.headers.authorization?.split("Bearer ")[1];
+    const auth = req.headers.authorization || "";
+    const token = auth.startsWith("Bearer ") ? auth.substring(7) : null;
+
     if (!token) return res.status(401).json({ message: "Token no proporcionado" });
 
     try {
         const decoded = await firebaseAdmin.auth().verifyIdToken(token);
-        (req as any).user = decoded;
+        (req as any).user = decoded; // uid, email, claims...
         next();
-    } catch {
-        res.status(401).json({ message: "Token inválido" });
+    } catch (e) {
+        return res.status(401).json({ message: "Token inválido" });
     }
 }
