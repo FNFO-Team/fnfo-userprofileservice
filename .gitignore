@@ -139,3 +139,5 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
 .DS_Store
+
+fnfo-dev-firebase-adminsdk-fbsvc-4a2a8ace40.json
