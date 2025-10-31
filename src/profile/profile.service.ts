@@ -3,18 +3,15 @@ import { firebaseAdmin } from "../config/firebase";
 
 export class ProfileService {
     async createProfile(data: Partial<IProfile>): Promise<IProfile> {
-        /**
         const userRecord = await firebaseAdmin.auth().createUser({
             email: data.email!,
             password: "defaultPassword123", // temporal, se maneja luego por frontend
             displayName: data.name,
         });
-            */
 
         const newProfile = new ProfileModel({
             ...data,
-            //firebaseUid: userRecord.uid,
-            firebaseUid: "temp-" + Date.now(), // identificador temporal
+            firebaseUid: userRecord.uid,
         });
         return await newProfile.save();
     }
@@ -34,7 +31,7 @@ export class ProfileService {
     async deleteProfile(id: string): Promise<void> {
         const profile = await ProfileModel.findById(id);
         if (profile) {
-            // await firebaseAdmin.auth().deleteUser(profile.firebaseUid);
+            await firebaseAdmin.auth().deleteUser(profile.firebaseUid);
             await ProfileModel.findByIdAndDelete(id);
         }
     }
