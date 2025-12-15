@@ -67,6 +67,7 @@ web_modules/
 
 # dotenv environment variable files
 .env
+*.env
 .env.*
 !.env.example
 
@@ -141,3 +142,4 @@ vite.config.ts.timestamp-*
 .DS_Store
 
 fnfo-dev-firebase-adminsdk-fbsvc-4a2a8ace40.json
+secrets/
