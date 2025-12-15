@@ -63,4 +63,8 @@ export class ProfileService {
     async deleteProfile(id: string): Promise<void> {
         await ProfileModel.findByIdAndDelete(id);
     }
+
+    async getProfileByFirebaseUid(firebaseUid: string): Promise<IProfile | null> {
+        return await ProfileModel.findOne({ firebaseUid });
+    }
 }
