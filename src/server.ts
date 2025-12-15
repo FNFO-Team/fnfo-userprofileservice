@@ -5,7 +5,7 @@ import app from "./app";
 dotenv.config();
 
 const PORT = process.env.PORT || "8080";
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI as string;
 
 (async () => {
   try {
