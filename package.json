@@ -1,13 +1,11 @@
 {
   "name": "fnfo-userprofileservice",
   "version": "1.0.0",
-  "description": "User Profile microservice for FNFO (Friday Night Funkin’ Online) — manages player profiles and personal data using Firebase Auth and MongoDB.",
-  "main": "index.js",
+  "description": "User Profile microservice for FNFO",
   "scripts": {
-    "test": "echo \"No tests yet\"",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
-    "start": "node scripts/bootstrap-firebase.js && node_modules/.bin/ts-node src/server.ts"
+    "start": "node dist/server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
